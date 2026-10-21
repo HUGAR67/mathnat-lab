@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MathNat Lab</title>
+  <meta name="description" content="數學、化學、物理與教學網站" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav container">
+      <div class="brand">Math<span>Nat</span> Lab</div>
+      <div class="menu">
+        <a href="#math">數學</a>
+        <a href="#chem">化學</a>
+        <a href="#physics">物理</a>
+        <a href="#teach">教學</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="eyebrow">國中 / 高中 / 自然科學</div>
+        <h1>超強數學與自然科學學習工具</h1>
+        <p>
+          整合三次函數圖形、化學方程式配係數、物理速度公式與教學內容，
+          讓學習更直觀、更互動，也更容易理解。
+        </p>
+        <div class="tag-list">
+          <span class="tag">三次函數</span>
+          <span class="tag">圖形</span>
+          <span class="tag">配平</span>
+          <span class="tag">速度公式</span>
+          <span class="tag">教學</span>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><strong>3</strong><span>核心模組</span></div>
+        <div class="stat"><strong>4</strong><span>速度公式</span></div>
+        <div class="stat"><strong>∞</strong><span>練習可能</span></div>
+      </div>
+    </section>
+
+    <section id="math" class="panel">
+      <h2>數學：三次函數圖形</h2>
+      <div class="grid-2">
+        <div class="math-box control-block">
+          <div class="row">
+            <label class="field">
+              <span>a</span>
+              <input id="a" type="number" value="1" step="0.1" />
+            </label>
+            <label class="field">
+              <span>b</span>
+              <input id="b" type="number" value="0" step="0.1" />
+            </label>
+          </div>
+
+          <div class="row">
+            <label class="field">
+              <span>c</span>
+              <input id="c" type="number" value="0" step="0.1" />
+            </label>
+            <label class="field">
+              <span>d</span>
+              <input id="d" type="number" value="0" step="0.1" />
+            </label>
+          </div>
+
+          <button type="button" class="secondary" id="renderCubicBtn">更新圖形</button>
+
+          <div id="cubicResult" class="result-box">
+            y = 1x^3 + 0x^2 + 0x + 0
+          </div>
+        </div>
+
+        <div class="control-block">
+          <canvas id="graphCanvas" width="520" height="360"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section id="chem" class="panel">
+      <h2>化學：方程式配係數</h2>
+      <div class="grid-2">
+        <div class="control-block">
+          <label class="field-wide">
+            <span>反應式</span>
+            <input id="reactionInput" type="text" value="C6H12O6 + O2 -> CO2 + H2O" />
+          </label>
+
+          <div class="button-row">
+            <button type="button" id="balanceBtn">開始配係數</button>
+          </div>
+
+          <div id="chemResult" class="result-box">
+            例如：C6H12O6 + O2 -> CO2 + H2O
+          </div>
+        </div>
+
+        <div class="control-block">
+          <h3>常見例題</h3>
+          <div class="chip-list">
+            <button type="button" class="chip" data-example="H2 + O2 -> H2O">H₂ + O₂ → H₂O</button>
+            <button type="button" class="chip" data-example="Fe + O2 -> Fe2O3">Fe + O₂ → Fe₂O₃</button>
+            <button type="button" class="chip" data-example="C3H8 + O2 -> CO2 + H2O">C₃H₈燃燒</button>
+            <button type="button" class="chip" data-example="C6H12O6 + O2 -> CO2 + H2O">葡萄糖燃燒</button>
+          </div>
+          <p class="note">
+            配平的重點：左右兩邊每種元素的原子數必須一樣，並找出最小正整數係數。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="physics" class="panel">
+      <h2>物理：四個速度公式運用</h2>
+      <div class="grid-2">
+        <div class="control-block">
+          <label class="field-wide">
+            <span>選擇公式</span>
+            <select id="physicsFormula">
+              <option value="v">v = v₀ + at</option>
+              <option value="s">s = v₀t + 1/2 at²</option>
+              <option value="v2">v² = v₀² + 2as</option>
+              <option value="avg">s = (v + v₀)/2 × t</option>
+            </select>
+          </label>
+
+          <div id="physicsInputs" class="physics-inputs"></div>
+
+          <div class="button-row">
+            <button type="button" id="calcPhysicsBtn">計算</button>
+          </div>
+
+          <div id="physicsResult" class="result-box">
+            請輸入已知量，點擊計算。
+          </div>
+        </div>
+
+        <div class="control-block">
+          <h3>四個常用公式</h3>
+          <ul class="formula-list">
+            <li>v = v₀ + at</li>
+            <li>s = v₀t + 1/2 at²</li>
+            <li>v² = v₀² + 2as</li>
+            <li>s = (v + v₀)/2 × t</li>
+          </ul>
+          <p class="note">
+            記住：v 是末速度、v₀ 是初速度、a 是加速度、t 是時間、s 是位移。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="teach" class="panel">
+      <h2>教學：快速理解重點</h2>
+      <div class="tutorial-grid">
+        <article class="lesson">
+          <h3>1. 三次函數</h3>
+          <p>三次函數的標準型為 y = ax³ + bx² + cx + d。</p>
+          <ul>
+            <li>a 影響方向和開口</li>
+            <li>圖形可能有極大值或極小值</li>
+            <li>可以用交點找 x 軸解</li>
+          </ul>
+        </article>
+
+        <article class="lesson">
+          <h3>2. 化學配平</h3>
+          <p>先拆出每種元素的原子數，再讓左右兩邊相同。</p>
+          <ul>
+            <li>先寫出反應式</li>
+            <li>數元素原子數</li>
+            <li>找最小正整數係數</li>
+          </ul>
+        </article>
+
+        <article class="lesson">
+          <h3>3. 物理公式</h3>
+          <p>先看題目已知哪些量，選對公式就很簡單。</p>
+          <ul>
+            <li>判斷已知量與未知量</li>
+            <li>選擇最適合公式</li>
+            <li>代入後整理計算</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    MathNat Lab — 讓數學與自然科學學習更直觀、更有趣。
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
